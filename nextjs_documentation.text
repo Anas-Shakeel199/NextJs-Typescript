@@ -1,0 +1,151 @@
+--------------------------------next js documentation----------------------------------
+
+Q1: why we need next.js?
+A: Next.js ki zaroorat ko samajhne ke liye pehle React ki kuch limitations ko samajhna zaroor hai.
+React ek behtareen library hai, lekin yeh pure Client-Side Rendering (CSR) par kaam karti hai. Iska matlab hai ki jab user aapki website open karta hai, toh browser pehle ek khali HTML page download karta hai aur phir JavaScript ke zariye poora page render hota hai. Is wajah se do bare masle aate hain:
+
+1: SEO (Search Engine Optimization) ka Masla: Google ya doosre search engines ke crawlers jab aapki React website par aate hain, toh unhein khali HTML milta hai. Content baad mein JS se load hota hai, jis ki wajah se React apps ko Google par rank karwana mushkil ho jata tha.
+2: Slow Initial Load Time: Agar kisi ka internet slow ho ya app bari ho, toh jab tak sari JavaScript download aur execute nahi hoti, tab tak user ko blank screen dikhti hai.
+
+3: Next.js Ne Yeh Masle Kaise Hal Kiye?
+Next.js ne React ke upar a kar yeh saare main features provide kiye jo standard React mein out-of-the-box nahi milte:
+
+1. Server-Side Rendering (SSR) & Static Site Generation (SSG)
+Next.js HTML page ko server par hi ready (render) kar ke browser ko bhejta hai.
+Fayda: Search engines ko tayyar HTML content milta hai (SEO rock-solid ho jata hai), aur user ko screen par instantly content nazar aa jata hai (Fast Initial Load).
+
+2. File-System Routing
+React mein route banane ke liye react-router-dom alag se setup karna parta tha. Next.js mein aap bas app folder ke andar ek new folder banate ho (e.g., app/about/page.js), aur aapka routing automatic ho jata hai.
+
+3. Full-Stack Capabilities (API Routes & Server Actions)
+Next.js mein aap frontend ke saath-saath backend logic bhi likh sakte ho.
+Aapko alag se Express.js server banane ki har baar zaroorat nahi parti; aap Next.js ke andar hi API endpoints bana sakte ho ya Server Actions ke zariye direct database se connect kar sakte ho.
+
+4. Automatic Performance Optimization
+Images: Image component (<Image/>) automatically images ko compress aur lazy-load karta hai.
+Fonts & Scripts: Google Fonts aur third-party scripts ko performance optimize kar ke load karta hai.
+Code Splitting: Har page ki sirf utni hi JavaScript load hoti hai jitni us page ko zaroorat hoti hai.
+
+Summary:
+React sirf UI banane ke liye ek library thi, jismein SEO, Routing, aur Server rendering ke liye alag-alag packages setup karne parte the.
+Next.js ek aisa Production-ready Framework hai jo React ko SEO-friendly, super fast, aur full-stack bana deta hai bina kisi extra setup ke.
+
+Q2: what is the diffrence between client side rendering (CSR) & server side render (SSR)?
+A: 
+1. Client-Side Rendering (CSR)
+CSR mein saara kaam user ke browser par hota hai.
+Kaise kaam karta hai: Jab user website open karta hai, toh server browser ko ek lagbhag khali HTML file aur ek bari JavaScript file bhej deta hai. Browser us JS file ko execute karta hai aur page ka content render/draw karta hai.
+Standard Tool: Plain React.js, Vue.js, Angular.
+Misaal: Ek khali plot (HTML) aur saari building material ki gadi (JavaScript) client ke ghar bhej di jaye, aur wo khud build kare.
+Pros & Cons (CSR)
+✅ Fast Page Transitions: Ek baar site load ho jaye, toh aage ke pages bina reload hue instant khulte hain (Single Page Application experience).
+
+✅ Server Par Load Kam: Server ka kaam sirf raw files bhejna hota hai, computation user ke browser par hoti hai.
+
+❌ Slow Initial Load: Pehli baar website khulne mein waqt lagta hai kyunki poori JS download hoti hai.
+
+❌ Poor SEO: Search engine crawlers ko pehle khali HTML dikhta hai, jis se Google par rank hona mushkil hota hai.
+
+2. Server-Side Rendering (SSR)
+SSR mein saara kaam pehle Server par hota hai.
+Kaise kaam karta hai: Jab user page request karta hai, toh server pehle database se data leta hai, HTML page tayyar (render) karta hai, aur fully populated HTML browser ko bhejta hai. Browser us ready HTML ko instantly dikha deta hai, aur phir peechhe se JS attach hoti hai (jisey Hydration kehte hain).
+Standard Tool: Next.js, Nuxt.js, Traditional MVC frameworks (Laravel, Express/EJS).
+Misaal: Server se pehle hi bani-banai building (ready HTML) ready-to-move halat mein deliver ho jaye.
+Pros & Cons (SSR)
+✅ Super Fast Initial Load: User ko pehle hi second mein screen par ready content dikh jata hai (No blank screen).
+
+✅ Great SEO: Search engines ko pehle se tayyar HTML milta hai, is liye Google indexing bohot aasan aur fast hoti hai.
+
+❌ Higher Server Load: Har request par server ko page render karna parta hai, jis se server ki RAM/CPU zyada use hoti hai.
+
+❌ Slight Delay in Interaction: Jab tak JavaScript background mein fully load (hydrate) nahi hoti, tab tak buttons ya interactive elements thori der ke liye non-responsive ho sakte hain.
+
+Q3: what is next js ?
+A:Next.js is an open-source React framework created by Vercel that allows developers to build fast, production-ready, full-stack web applications.
+While React itself is a JavaScript library used purely for building user interfaces (UI) on the client side, Next.js extends React by providing a complete structure, server-side capabilities, and built-in optimizations.
+
+Q4: how to create nextjs project?
+A: write a command (npx create-next-app@latest) in the terminal
+
+Q5: what is app router?
+A: App Router Next.js ka wo routing system hai jo app/ folder ki directory aur structure ko dekh kar automatic web pages ke URLs (routes) banata hai. Is mein banayagaye components by default Server Components hote hain jo performance aur SEO ko optimize karte hain.Misaal: app/about/page.js $\rightarrow$ [yourdomain.com/about](https://yourdomain.com/about)
+
+Q6: what is nested app router ?
+A: Nested App Router ka matlab hai app/ folder ke andar folders ke andar mazeed folders banana, taaki multi-level URLs (nested routes) ban sakein aur unka UI layout (Navbar/Sidebar) shared ya parent level par reuse ho sake.Misaal: app/dashboard/settings/page.js $\rightarrow$ [yourdomain.com/dashboard/settings](https://yourdomain.com/dashboard/settings)
+
+Q7: what is dynamic route?
+A: Dynamic Routing Next.js ka aisa feature hai jismein aap har dynamic page ke liye alag folder ya file nahi banate, balki ek single flexible route template banate hain jo dynamic/variable URLs (jaise Product IDs, Usernames, ya Blog Slugs) ko handle karta hai.
+Simple Misaal:
+
+Agar aapke paas 1000 products hain, toh aap 1000 folders nahi banayein ge. Aap bas ek dynamic route template banayein ge jo [domain.com/products/1](https://domain.com/products/1) se lekar [domain.com/products/1000](https://domain.com/products/1000) tak sab ko ek hi template se handle karega.
+
+Q8: Dynamic routr banta kesa han?
+A: Next.js App Router mein folder ke naam ko Square Brackets [id] ke andar rakha jata hai.
+app/
+└── products/
+    └── [id]/             <-- Dynamic Segment
+        └── page.js       <-- Dynamic Page UI
+
+Q9: what is routes groups?
+A:
+1. Project Organization (Clean Structure): 
+Aapki app/ directory mein 20-30 pages ho sakte hain. Related pages ko ek jagah group karne ke liye aap (admin), (shop), ya (user) jaise groups bana sakte hain bina URL ko kharab kiye.
+
+2. Multiple Layouts (Sab Se Bada Use Case ⭐)
+Route Groups ka sab se bara fayda yeh hai ki aap alag-alag sections ke liye alag-alag Layouts (layout.js) use kar sakte hain:
+
+Marketing pages ((marketing)): Is mein Header aur Footer ho ga.
+
+Auth pages ((auth)): Is mein koi Navbar nahi ho ga, sirf akele centered login box ho ga.
+
+Dashboard pages ((dashboard)): Is mein left par Sidebar ho ga.
+
+app/
+├── (auth)/
+│   ├── layout.js        <-- Specific Layout (No Navbar)
+│   ├── login/
+│   └── register/
+└── (dashboard)/
+    ├── layout.js        <-- Specific Layout (With Sidebar)
+    ├── settings/
+    └── profile/
+
+Q10: what is parallel route?
+A: Parallel Routes Next.js App Router ka ek advanced routing feature hain jo aapko ek hi view/page par ek saath multiple independent pages (slots) render karne ki ijazat dete hain.
+
+Aasan lafzon mein: Jab aapko ek hi screen par 2-3 alag Sections ya Dashboards ko parallelly dikhana ho—aur wo sab apna state, routing aur loading state alag se handle karein—tab Parallel Routes use hote hain.
+
+Parallel Routes Kaise Banate Hain?
+Parallel Routes banane ke liye Slots use hotey hain. Slot banane ka tareeqa yeh hai ke folder ke naam ke start mein @ symbol lagaya jata hai:
+@folderName
+app/
+└── dashboard/
+    ├── layout.js       <-- Primary Layout jo slots ko receive karega
+    ├── page.js         <-- Main Dashboard Page
+    ├── @analytics/
+    │   └── page.js     <-- Parallel Route Slot 1
+    └── @team/
+        └── page.js     <-- Parallel Route Slot 2
+        
+Next.js automatic in @slot folders props ke taur par parent layout.js ko pass kar deta hai:
+
+parallel route ka faida ya han ka Har slot ka apna loading.js aur error.js ho sakta hai.Har slot ke andar alag se sub-folders ho sakte hain.in sa conditional rendering bhi hoti han 
+
+Q11 next js humma loading, not-found, error, global-error, route, template, default pages setup kerna ka liya detta jissa hum khud customise ker sakhta han apni meri sa
+1 loading Page : loading koi data fetching ma time lag raha han toh us time ma ya loading page render ho ga.
+
+2 not-found Page : jab koi user asa route pa jata han jo humna create kia he ni hwa toh hum us ka liya apna ak not found page banna sakta han.
+
+3: error page : hm apna khud ka error page banaa sakhta han 
+
+4: global error : ya he hum apna customiz add ker sakhta han page.
+
+Q12: in next js every page is server component so if you want to use hook you have to write "use client" at the top of the page.
+
+Q13: what is navigation in nextjs?
+A: there are two methods of navigation in nextjs
+1. declarative navigation: <Link> component ka through
+2. programmatic navigation: useRouter() hoook ka through
+
+
+
