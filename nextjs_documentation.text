@@ -147,5 +147,11 @@ A: there are two methods of navigation in nextjs
 1. declarative navigation: <Link> component ka through
 2. programmatic navigation: useRouter() hoook ka through
 
+Q14: what is api routes in next js ?
+A: an api routes is a backend function inside next.js app.
+it can receive request and send response.
+you dont need a seperate node sever.  
+
+
 
 
