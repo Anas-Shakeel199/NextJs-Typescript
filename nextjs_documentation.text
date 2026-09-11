@@ -186,8 +186,21 @@ export async function GET(request:NextRequest){
     return NextResponse.json({query})
 }
 
+Q15: data fateching in nextjs?
+A: server sa data lena or wensite or frontend pa show kerwana is called data fetching.
+there are 3 types ho data fetching in nextjs.
+1: SSR:
+SSR full form is server side rendering means server sa data la ka website pa show kernwana jitni bar hum page refresh kara ga utni bar api request jya gi server pa or data fetch kar ka lay gi it is used in dynamic pages (dashboard m user profile ) jab bhi updated data ki need hoti han tab hum server side rendering hoti han.
 
+2: SSG: 
+SSG ka full form han static site Generation yaha pa hum data ko build time pa he fetch kar leta han yani ya important nihi han her page refresh pa api request jya yani bar bar api call ni ho gi jab aik bar api call ho gyai toh woh data cache ma store karwa leta han or phir ussi data ko bar bar use kerta rehta han toh issa umera page ka loading time hota han kam ho jata han. ya hum use kerta han (bolg , landing pages pa)
 
+3: ISR:
+ISR ka full form han incremental static regenration ys SSR or SSg ka combination han is ka inder jab hum project ko deploy kar dein ga toh page refresh kerna ka baad aik bar api request gayi or data cache ma store ho jya ga like SSG dubara api call ni ho gi hum cache sa data utha la ga or is ka inder time lagta han yani kuch timw baad automatically page refresh ho ga jo bhi updated data ho ga woh get ho ka cache ma store ho jya ga ya use hota han zyda ter (News, e-commerce, changing content jaha her ghanta baad trending cheeza yani updated cheeza show karwani han)
 
+=> simple analogy:
+SSR : har bar taza khana bannah.
+SSG : Ek bar banna ka store kerna.
+ISR : store kiya hwa khana lakin har kuch dar baad naya bana dena.
 
 
