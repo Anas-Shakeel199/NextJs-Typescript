@@ -152,6 +152,42 @@ A: an api routes is a backend function inside next.js app.
 it can receive request and send response.
 you dont need a seperate node sever.  
 
+Q15: how to create api in next.js?
+A: app folder ka inder aik api name ka folder bannah ga or is folder ka inder user name ka folder bannah ga jis ka inder user ka detials ho gi or is ka inder aik file bannah ko route.ts is ka inder user ki api's hon gi or file ka name route he ho ga or .ts is liya kion ka hum is ka sath typscript use ker raha han or har route file ka inder hum four routes bannah sakhta han . suppose get kerna pa humna kuch response bhejna han next ki tarf sa humma do cheeza milti han aik (nextRequest), (nextResponse) both are the objects
+
+export async function GET(){
+
+    return NextResponse.json({
+        name: "Anas",
+        age: 21
+    })
+}
+
+and dunamic api's
+
+interface parmsType {
+    params: {
+        id: number
+    }
+}
+
+export async function GET(request:NextRequest, {params}: parmsType){
+    const {id} = params
+    return NextResponse.json({
+        postID:id
+    })
+
+}
+
+and searh query in nextjs 
+
+export async function GET(request:NextRequest){
+    let query = request.nextUrl.searchParams.get("q")
+    return NextResponse.json({query})
+}
+
+
+
 
 
 
